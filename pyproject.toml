@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "get_number"
+version = "0.1.0"
+description = ""
+authors = ["Rasul Taimaskhanov <81189712+taimaskhanov11@users.noreply.github.com>"]
+
+[tool.poetry.dependencies]
+python = "<3.11,>=3.6"
+loguru = "^0.6.0"
+Telethon = "^1.24.0"
+pydantic = "^1.9.0"
+PyYAML = "^6.0"
+pyinstaller = "^4.10"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+auto-py-to-exe = "^2.18.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
