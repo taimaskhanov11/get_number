@@ -32,7 +32,6 @@ class Controller(BaseModel):
             path,
             values["api_id"],
             values["api_hash"],
-
         )
 
     class Config:
@@ -68,8 +67,14 @@ class Controller(BaseModel):
             await self.client.start()
         except Exception as e:
             logger.critical(e)
-            self.client = Controller(**config.accounts[1].dict())
-            await client.start()
+            path = str(Path(SESSION_PATH, f"{self.number}_session.session"))
+            logger.info(path)
+            self.client = TelegramClient(
+                path,
+                self.api_id,
+                self.api_hash,
+            )
+            await self.client.start()
 
         data = {}
         numbers = self.get_number_from_file()
